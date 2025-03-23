@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="bs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Materijali - Matematika bez muke</title>
+    <link rel="stylesheet" href="styles.css">
+    <script defer src="script.js"></script>
+
+</head>
+
+<style>
+    .material-container {
+    display: flex;
+    justify-content: center; /* Centriranje kartica horizontalno */
+    align-items: center; /* Centriranje kartica vertikalno (ako je potrebno) */
+    gap: 20px; /* Razmak između kartica */
+    flex-wrap: wrap; /* Omogućava prelamanje kartica na manjim ekranima */
+    max-width: 900px; /* Ograničava širinu kontejnera */
+    margin: 0 auto; /* Centriranje kontejnera unutar sekcije */
+}
+
+.materijali h2 {
+    margin-top: 60px; /* Povećava razmak od headera */
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+</style>
+<body>
+    <!-- Heder -->
+    <header id="main-header">
+        <div class="container">
+            <h1 id="site-title">Matematika bez muke</h1>
+            <nav id="main-nav">
+                <ul>
+                    <li><a href="index.html" >Početna</a></li>
+                    <li><a href="materijali.html" class="active" >Materijali</a></li>
+                    <li><a href="kvizovi.html">Kvizovi</a></li>
+                    <li><a href="kontakt.html">Kontakt</a></li>
+                </ul>
+            </nav>
+        </div>
+         <!-- Profilni krug autora -->
+         <div class="author-avatar"id="avatar-toggle">
+            <img src="Materijali/profilna.jpg" alt="Autor">
+        </div>
+    </div>
+    <div class="dropdown-menu" id="dropdown-menu">
+        <strong>prof.Hidajeta Lukač</strong><br>
+        Profesor matematike<br>
+        Osnivač projekta<br>
+        <hr style="margin: 10px 0;">
+        <span style="font-size: 13px; color: #555;">Dobrodošli! Ovo je personalizovana zona autora. Hvala što učite s nama.</span>
+    </div>
+    </header>
+
+
+    <main id="content">
+        <section class="materijali">
+            <h2>Dostupni materijali</h2>
+            <div class="material-container">
+                <div class="material-card">
+                    <h3>Linearne jednacine</h3>
+                    <p>Rešavanje lineranih jednacina.</p>
+                    <a href="materijali/Linearne jednacine i prrimjena linearnih jedn2acina.ppsx" class="download-btn" >Preuzmi PPT</a>
+                </div>
+                <div class="material-card">
+                   
+                    <h3>Matematika bez muke</h3>
+                    <p>Realizovana tema na simpozijumu.</p>
+                    <a href="materijali/Matematika bez muke.ppsx" class="download-btn">Preuzmi PPT</a>
+                </div>
+                <div class="material-card">
+                  
+                    <h3>Mentalno zdravlje</h3>
+                    <p>Realizovana tema na simpozijumu.</p>
+                    <a href="materijali/Prezentacija mentalno zdravlje.ppsx" download class="download-btn">Preuzmi PPT</a>
+                </div>
+                <div class="material-card">
+                 
+                    <h3>Sistematizacija gradiva</h3>
+                    <p>Pregled sistematizacije gradiva.</p>
+                    <a href="materijali/Sistematizacija 2.ppsx" download class="download-btn">Preuzmi PPT</a>
+                </div>
+                <div class="material-card">
+                   
+                    <h3>Uglovi mnogougla</h3>
+                    <p>Obrada unutrasnjih uglova mnogougla</p>
+                    <a href="materijali/Unutrasnji uglovi mnogougla.ppsx" download class="download-btn">Preuzmi PPT</a>
+                </div>
+                <div class="material-card">
+                   
+                    <h3>Kviz ko zna zna</h3>
+                    <p>Kviz znanja za 8 razred.</p>
+                    <a href="materijali/KVIZ  - Ko Zna Zna.ppsx" download class="download-btn">Preuzmi PPT</a>
+                </div>
+                <div class="material-card">
+                  
+                    <h3>Kviz pokaži šta znaš</h3>
+                    <p>Kviz znanja za 9 razred.</p>
+                    <a href="materijali/Kviz-POKAŽI ŠTA ZNAŠ.ppsx" download class="download-btn">Preuzmi PDT</a>
+                </div>
+
+            </div>
+        </section>
+    </main>
+
+    <!-- Futer -->
+    <footer id="main-footer">
+        <div class="container">
+            <p>&copy; 2025 Matematika bez muke. Sva prava zadržana.</p>
+        </div>
+    </footer>
+</body>
+</html>

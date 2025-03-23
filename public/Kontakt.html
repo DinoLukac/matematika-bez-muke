@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="bs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kontakt - Matematika bez muke</title>
+    <link rel="stylesheet" href="styles.css">
+    <script defer src="script.js"></script>
+    <style>
+        .kontakt-container {
+            max-width: 600px;
+            margin: 80px auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+        }
+
+        .kontakt-container.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .kontakt-container h2 {
+            margin-bottom: 15px;
+        }
+
+        .kontakt-form input, .kontakt-form textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .kontakt-form button {
+            background: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s ease-in-out;
+        }
+
+        .kontakt-form button:hover {
+            background: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <!-- Heder -->
+    <header id="main-header">
+        <div class="container">
+            <h1 id="site-title">Matematika bez muke</h1>
+            <nav id="main-nav">
+                <ul>
+                    <li><a href="index.html">Početna</a></li>
+                    <li><a href="materijali.html">Materijali</a></li>
+                    <li><a href="kvizovi.html">Kvizovi</a></li>
+                    <li><a href="kontakt.html" class="active">Kontakt</a></li>
+                </ul>
+            </nav>
+        </div>
+         <!-- Profilni krug autora -->
+         <div class="author-avatar" id="avatar-toggle">
+            <img src="Materijali/profilna.jpg" alt="Autor">
+        </div>
+    </div>
+    <div class="dropdown-menu" id="dropdown-menu">
+        <strong>prof.Hidajeta Lukač</strong><br>
+        Profesor matematike<br>
+        Osnivač projekta<br>
+        <hr style="margin: 10px 0;">
+        <span style="font-size: 13px; color: #555;">Dobrodošli! Ovo je personalizovana zona autora. Hvala što učite s nama.</span>
+    </div>
+    </header>
+
+    <main id="content">
+        <div class="kontakt-container" id="kontakt-box">
+            <h2>Kontaktirajte nas</h2>
+            <p>Pošaljite nam poruku ili pitanje putem formulara ispod.</p>
+            <form class="kontakt-form" id="Kontaktirajte">
+                <input type="text" id="name" name="name" placeholder="Vaše ime" required>
+                <input type="email" id="email" name="email" placeholder="Vaš email" required>
+                <textarea id="message" name="message" placeholder="Vaša poruka" rows="5" required></textarea>
+                <button type="submit">Pošalji</button>
+                <span class="success-check" id="checkmark">✔</span>
+            </form>
+            
+        </div>
+    </main>
+
+    <!-- Futer -->
+    <footer id="main-footer">
+        <div class="container">
+            <p>&copy; 2025 Matematika bez muke. Sva prava zadržana.</p>
+        </div>
+    </footer>
+
+    <script>
+         document.addEventListener("DOMContentLoaded", function () {
+        document.getElementById("kontakt-box").classList.add("show");
+    });
+
+    document.getElementById('Kontaktirajte').addEventListener('submit', async function (event) {
+        event.preventDefault();
+
+        const formData = new FormData(this);
+        const data = Object.fromEntries(formData);
+
+        try {
+            await fetch('/send-email', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(data)
+            });
+
+            this.reset(); // Reset forme
+
+            // Prikaz ✔ pored dugmeta
+            const button = this.querySelector('button[type="submit"]');
+            let check = document.createElement('span');
+            check.textContent = '✔';
+            check.style.color = 'green';
+            check.style.marginLeft = '10px';
+            check.style.fontSize = '18px';
+            button.parentNode.insertBefore(check, button.nextSibling);
+
+            setTimeout(() => {
+                check.remove();
+            }, 3000);
+
+        } catch (error) {
+            console.error('Greška prilikom slanja:', error);
+        }
+    });
+    </script>
+</body>
+</html>
