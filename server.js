@@ -22,11 +22,11 @@ app.get("/materijali.html", (req, res) => {
 })
 
 app.get("/kvizovi.html", (req, res) => {
-  res.sendFile(path.join(__dirname, "public", "kvizovi.html"))
+  res.sendFile(path.join(__dirname, "public", "Kvizovi.html"))
 })
 
 app.get("/kontakt.html", (req, res) => {
-  res.sendFile(path.join(__dirname, "public", "kontakt.html"))
+  res.sendFile(path.join(__dirname, "public", "Kontakt.html"))
 })
 
 // 3. Email slanje
